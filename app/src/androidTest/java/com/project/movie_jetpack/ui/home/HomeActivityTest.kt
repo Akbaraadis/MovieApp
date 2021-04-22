@@ -28,6 +28,7 @@ class HomeActivityTest {
 
     @Test
     fun loadSeries() {
+        onView(withText("Tv Series")).perform(click())
         onView(withId(R.id.series_rv_list)).check(matches(isDisplayed()))
         onView(withId(R.id.series_rv_list)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(seriesData.size))
     }
@@ -46,6 +47,7 @@ class HomeActivityTest {
 
     @Test
     fun loadDetailSeries() {
+        onView(withText("Tv Series")).perform(click())
         onView(withId(R.id.series_rv_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.detail_tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_title)).check(matches(withText(seriesData[0].title)))

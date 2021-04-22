@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Movie_Jetpack">
-        <activity
-            android:name=".Test"
-            android:label="@string/title_activity_test"
-            android:theme="@style/Theme.Movie_Jetpack.NoActionBar"></activity>
+        <activity android:name=".ui.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.detail.DetailMovieActivity"
             android:label="@string/title_activity_detail_movie"
@@ -24,14 +27,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.project.movie_jetpack.ui.home.HomeActivity" />
         </activity>
-        <activity android:name=".reader.MovieReaderActivity" />
-        <activity android:name=".ui.home.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.home.HomeActivity"/>
     </application>
 
 </manifest>

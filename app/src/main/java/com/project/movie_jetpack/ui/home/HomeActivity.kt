@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.databinding.ActivityHomeBinding
+import com.project.movie_jetpack.ui.home.viewpager.ViewPagerAdapter
 
 class HomeActivity : AppCompatActivity() {
 

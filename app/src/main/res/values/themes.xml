@@ -21,8 +21,6 @@
 
     <style name="Theme.Movie_Jetpack.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="Theme.Movie_Jetpack.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
     <style name="textTitle">
         <item name="fontFamily">@font/montserrat_semibold</item>
         <item name="android:textSize">15sp</item>

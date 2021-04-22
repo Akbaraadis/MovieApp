@@ -17,11 +17,11 @@
             android:layout_width="80dp"
             android:layout_height="120dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             tools:backgroundTint="@android:color/darker_gray"
             app:cardCornerRadius="15dp">
 
             <ImageView
+                android:contentDescription="@string/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/img_item_photo"
@@ -32,9 +32,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@id/img_item_photo"
-            android:layout_toRightOf="@id/img_item_photo"
             android:orientation="vertical">
 
             <TextView

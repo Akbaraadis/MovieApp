@@ -1,12 +1,10 @@
-package com.project.movie_jetpack.ui.home
+package com.project.movie_jetpack.ui.home.viewpager
 
 import android.content.Context
-import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.ui.home.movie.MovieFragment
 import com.project.movie_jetpack.ui.home.tv_series.TvSerriesFragment
