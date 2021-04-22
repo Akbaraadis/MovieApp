@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.movie_jetpack">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,16 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movie_Jetpack">
         <activity
-            android:name=".detail.DetailMovieActivity"
+            android:name=".Test"
+            android:label="@string/title_activity_test"
+            android:theme="@style/Theme.Movie_Jetpack.NoActionBar"></activity>
+        <activity
+            android:name=".ui.detail.DetailMovieActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".home.HomeActivity"
+            android:parentActivityName=".ui.home.HomeActivity"
             android:theme="@style/Theme.Movie_Jetpack.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".home.HomeActivity" />
+                android:value="com.project.movie_jetpack.ui.home.HomeActivity" />
         </activity>
         <activity android:name=".reader.MovieReaderActivity" />
-        <activity android:name=".home.HomeActivity">
+        <activity android:name=".ui.home.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

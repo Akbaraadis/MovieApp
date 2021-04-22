@@ -11,4 +11,18 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title">Judul</string>
+    <string name="synopsis">Sinopsis</string>
+    <string name="description_movies">Deskripsi Film</string>
+    <string name="description_series">Deskripsi Tv Series</string>
+    <string name="example">Example</string>
+    <string name="movie">Film</string>
+    <string name="tv_series">Tv Series</string>
+    <string name="message_ok">OK</string>
+    <string name="genre">Genre</string>
+    <string name="title_activity_test">Test</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="movie_serries"><![CDATA[Movie & Series List]]></string>
 </resources>

@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Movie_Jetpack" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimaryVariant">@color/blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -22,4 +22,22 @@
     <style name="Theme.Movie_Jetpack.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.Movie_Jetpack.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="textTitle">
+        <item name="fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="textDescription">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="textGenre">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
 </resources>
