@@ -11,7 +11,7 @@ import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.databinding.ItemRowListBinding
 import com.project.movie_jetpack.ui.detail.DetailMovieActivity
 
-class TvSerriesAdapter : RecyclerView.Adapter<TvSerriesAdapter.MovieViewHolder>() {
+class TvSeriesAdapter : RecyclerView.Adapter<TvSeriesAdapter.MovieViewHolder>() {
 
     private var listmovies = ArrayList<Movies>()
 
