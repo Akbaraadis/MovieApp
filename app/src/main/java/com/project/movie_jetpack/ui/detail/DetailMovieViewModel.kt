@@ -2,9 +2,10 @@ package com.project.movie_jetpack.ui.detail
 
 import androidx.lifecycle.ViewModel
 import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.utils.MoviesData
 
-class DetailMovieViewModel : ViewModel() {
+class DetailMovieViewModel (private val movieRepo: MovieRepo) : ViewModel() {
 
     private lateinit var movieId: String
 
@@ -13,16 +14,17 @@ class DetailMovieViewModel : ViewModel() {
     }
 
 
-    fun getMovie(): Movies {
+    fun getMovie(): Movies
+    {
         lateinit var movie: Movies
-        val movieEntity = MoviesData.generateMovies()
+        val movieEntity = movieRepo.getAllMovie()
         for (list_movie in movieEntity) {
             if (list_movie.moviesId == movieId) {
                 movie = list_movie
             }
         }
 
-        val seriesEntity = MoviesData.generateSerries()
+        val seriesEntity = movieRepo.getAllSeries()
         for (list_movie in seriesEntity) {
             if (list_movie.moviesId == movieId) {
                 movie = list_movie

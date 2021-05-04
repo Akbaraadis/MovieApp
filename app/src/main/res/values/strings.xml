@@ -3,7 +3,7 @@
     <string name="title_activity_detail_movie">DetailMovieActivity</string>
 
     <string name="title">Judul</string>
-    <string name="synopsis">Sinopsis</string>
+    <string name="synopsis">Gambaran</string>
     <string name="movie">Film</string>
     <string name="tv_series">Tv Series</string>
     <string name="genre">Genre</string>

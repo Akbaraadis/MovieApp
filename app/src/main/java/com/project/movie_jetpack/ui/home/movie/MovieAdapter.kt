@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
-import com.project.movie_jetpack.databinding.FragmentMovieBinding
 import com.project.movie_jetpack.databinding.ItemRowListBinding
 import com.project.movie_jetpack.ui.detail.DetailMovieActivity
 

@@ -8,7 +8,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
-import com.project.movie_jetpack.data.utils.MoviesData
+import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
 import com.project.movie_jetpack.databinding.ActivityDetailMovieBinding
 
 class DetailMovieActivity : AppCompatActivity() {
@@ -29,7 +29,8 @@ class DetailMovieActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailMovieViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
 
         val extras = intent.extras

@@ -1,11 +1,12 @@
 package com.project.movie_jetpack.ui.home.tv_series
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.project.movie_jetpack.data.Movies
-import com.project.movie_jetpack.data.utils.MoviesData
+import com.project.movie_jetpack.data.source.MovieRepo
 
-class TvSeriesViewModel : ViewModel() {
+class TvSeriesViewModel (private val movieRepo: MovieRepo) : ViewModel() {
 
-    fun getSerries(): List<Movies> = MoviesData.generateSerries()
+    fun getSerries(): List<Movies> = movieRepo.getAllSeries()
 
 }
