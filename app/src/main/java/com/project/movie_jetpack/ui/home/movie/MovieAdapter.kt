@@ -3,6 +3,7 @@ package com.project.movie_jetpack.ui.home.movie
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -15,7 +16,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listmovies = ArrayList<Movies>()
 
-    fun setmovies(movies: List<Movies>?) {
+    fun setmovies(movies: LiveData<List<Movies>>) {
         if (movies == null) return
         this.listmovies.clear()
         this.listmovies.addAll(movies)

@@ -28,14 +28,14 @@ class DetailMovieViewModel (private val movieRepo: MovieRepo) : ViewModel() {
     {
         lateinit var movie: Movies
         val movieEntity = movieRepo.getAllMovie()
-        for (list_movie in movieEntity) {
+        for (list_movie in movieEntity.value!!) {
             if (list_movie.moviesId == movieId) {
                 movie = list_movie
             }
         }
 
         val seriesEntity = movieRepo.getAllSeries()
-        for (list_movie in seriesEntity) {
+        for (list_movie in seriesEntity.value!!) {
             if (list_movie.moviesId == movieId) {
                 movie = list_movie
             }
