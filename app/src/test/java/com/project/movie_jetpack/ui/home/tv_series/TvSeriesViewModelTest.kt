@@ -1,5 +1,8 @@
 package com.project.movie_jetpack.ui.home.tv_series
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.utils.MoviesData
@@ -7,6 +10,7 @@ import junit.framework.Assert
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -20,8 +24,14 @@ class TvSeriesViewModelTest {
 
     private lateinit var viewModel: TvSeriesViewModel
 
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var movieRepo: MovieRepo
+
+    @Mock
+    private lateinit var observer: Observer<List<Movies>>
 
     @Before
     fun setUp() {
@@ -30,11 +40,18 @@ class TvSeriesViewModelTest {
 
     @Test
     fun getMovie() {
-        `when`(movieRepo.getAllSeries()).thenReturn(MoviesData.generateSerries() as ArrayList<Movies>)
-        val courseEntities = viewModel.getSerries()
+        val dataMovie = MoviesData.generateSerries()
+        val series = MutableLiveData<List<Movies>>()
+        series.value = dataMovie
+
+        `when`(movieRepo.getAllSeries()).thenReturn(series)
+        val courseEntities = viewModel.getSerries().value
         verify(movieRepo).getAllSeries()
         assertNotNull(courseEntities)
-        assertEquals(10, courseEntities.size)
+        assertEquals(10, courseEntities?.size)
+
+        viewModel.getSerries().observeForever(observer)
+        verify(observer).onChanged(dataMovie)
     }
 
 }

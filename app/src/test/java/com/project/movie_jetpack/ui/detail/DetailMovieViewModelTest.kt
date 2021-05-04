@@ -1,11 +1,15 @@
 package com.project.movie_jetpack.ui.detail
 
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.utils.MoviesData
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -23,8 +27,14 @@ class DetailMovieViewModelTest{
     private val series = MoviesData.generateSerries()[0]
     private val seriesId = series.moviesId
 
+    @get:Rule
+    var instantTaskExecutorRule = InstantTaskExecutorRule()
+
     @Mock
     private lateinit var movieRepo: MovieRepo
+
+    @Mock
+    private lateinit var Observer: Observer<Movies>
 
     @Before
     fun setUpMovie() {
@@ -40,9 +50,12 @@ class DetailMovieViewModelTest{
 
     @Test
     fun getMovie() {
-        `when`(movieRepo.getAllMovie()).thenReturn(MoviesData.generateMovies() as ArrayList<Movies>)
+        val movie = MutableLiveData<Movies>()
+        movie.value = movies
+
+        `when`(movieRepo.getAllMovie()).thenReturn(movie)
         viewModel.setSelectedMovie(movies.moviesId)
-        val movie = viewModel.getMovie()
+        val movie = viewModel.getMovie().value as Movies
         verify(movieRepo).getAllMovie()
         assertNotNull(movie)
         assertEquals(movies.moviesId, movie.moviesId)
@@ -50,13 +63,19 @@ class DetailMovieViewModelTest{
         assertEquals(movies.sinopsis, movie.sinopsis)
         assertEquals(movies.imagePath, movie.imagePath)
         assertEquals(movies.title, movie.title)
+
+        viewModel.getMovie().observeForever(Observer)
+        verify(Observer).onChanged(movies)
     }
 
     @Test
     fun getSeries() {
-        `when`(movieRepo.getAllSeries()).thenReturn(MoviesData.generateSerries() as ArrayList<Movies>)
-        viewModel.setSelectedMovie(series.moviesId)
-        val seriess = viewModel.getMovie()
+        val serie = MutableLiveData<Movies>()
+        serie.value = series
+
+        `when`(movieRepo.getAllSeries()).thenReturn(series)
+        viewModel.setSelectedSeries(series.moviesId)
+        val seriess = viewModel.getSeries().value as Movies
         verify(movieRepo).getAllSeries()
         assertNotNull(series)
         assertEquals(series.moviesId, seriess.moviesId)
@@ -64,6 +83,9 @@ class DetailMovieViewModelTest{
         assertEquals(series.sinopsis, seriess.sinopsis)
         assertEquals(series.imagePath, seriess.imagePath)
         assertEquals(series.title, seriess.title)
+
+        viewModel.getSeries().observeForever(Observer)
+        verify(Observer).onChanged(series)
     }
 
 }
