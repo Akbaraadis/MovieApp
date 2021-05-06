@@ -30,7 +30,7 @@ class TvSeriesFragment: Fragment(R.layout.fragment_series) {
             val movieAdapter = TvSeriesAdapter()
 
             _binding.progressBar.visibility = View.VISIBLE
-            viewModel.getSerries().observe(viewLifecycleOwner, { series ->
+            viewModel.getSeries().observe(viewLifecycleOwner, { series ->
                 _binding.progressBar.visibility = View.GONE
                 movieAdapter.setmovies(series)
                 movieAdapter.notifyDataSetChanged()

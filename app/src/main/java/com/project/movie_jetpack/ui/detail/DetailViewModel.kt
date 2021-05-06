@@ -23,23 +23,4 @@ class DetailViewModel (private val movieRepo: MovieRepo) : ViewModel() {
 
     fun getSeries(): LiveData<Movies> = movieRepo.getSeries(seriesId)
 
-
-//    fun getMovie(): Movies
-//    {
-//        lateinit var movie: Movies
-//        val movieEntity = movieRepo.getAllMovie()
-//        for (list_movie in movieEntity.value!!) {
-//            if (list_movie.moviesId == movieId) {
-//                movie = list_movie
-//            }
-//        }
-//
-//        val seriesEntity = movieRepo.getAllSeries()
-//        for (list_movie in seriesEntity.value!!) {
-//            if (list_movie.moviesId == movieId) {
-//                movie = list_movie
-//            }
-//        }
-//        return movie
-//    }
 }

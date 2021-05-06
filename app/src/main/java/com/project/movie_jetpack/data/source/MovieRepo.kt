@@ -87,7 +87,7 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
         return seriesResults
     }
 
-    override fun getSeries(movieId: String): LiveData<Movies> {
+    override fun getSeries(seriesId: String): LiveData<Movies> {
 
         val seriesResult = MutableLiveData<Movies>()
 
@@ -95,7 +95,7 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
             override fun onAllSeriesReceived(seriesResponses: List<SeriesResponse>) {
                 lateinit var series: Movies
                 for (response in seriesResponses) {
-                    if (response.id == movieId) {
+                    if (response.id == seriesId) {
                         series = Movies(
                             response.id,
                             response.title,

@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import com.project.movie_jetpack.data.source.remote.response.MovieResponse
 import com.project.movie_jetpack.data.source.remote.response.SeriesResponse
+import com.project.movie_jetpack.data.utils.EspressoIdlingResource
 import com.project.movie_jetpack.data.utils.JsonHelper
 
 class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
@@ -24,11 +25,17 @@ class RemoteDataSource private constructor(private val jsonHelper: JsonHelper) {
     }
 
     fun getAllMovie(callback: LoadMovieCallback){
-        handler.postDelayed({ callback.onAllMovieReceived(jsonHelper.loadMovie()) }, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllMovieReceived(jsonHelper.loadMovie())
+            EspressoIdlingResource.decrement() }, SERVICE_LATENCY_IN_MILLIS)
     }
 
     fun getAllSeries(callback: LoadSeriesCallback){
-        handler.postDelayed({ callback.onAllSeriesReceived(jsonHelper.loadSeries()) }, SERVICE_LATENCY_IN_MILLIS)
+        EspressoIdlingResource.increment()
+        handler.postDelayed({
+            callback.onAllSeriesReceived(jsonHelper.loadSeries())
+            EspressoIdlingResource.decrement()}, SERVICE_LATENCY_IN_MILLIS)
     }
 
     interface LoadMovieCallback {

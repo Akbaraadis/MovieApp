@@ -8,7 +8,6 @@ import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.utils.MoviesData
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
-import junit.framework.TestCase
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

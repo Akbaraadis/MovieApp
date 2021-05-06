@@ -21,6 +21,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class DetailViewModelTest{
 
     private lateinit var viewModel: DetailViewModel
+    private lateinit var viewModel1: DetailViewModel
     private val movies = MoviesData.generateMovies()[0]
     private val movieId = movies.moviesId
 
@@ -44,8 +45,8 @@ class DetailViewModelTest{
 
     @Before
     fun setUpSeries() {
-        viewModel = DetailViewModel(movieRepo)
-        viewModel.setSelectedSeries(seriesId)
+        viewModel1 = DetailViewModel(movieRepo)
+        viewModel1.setSelectedSeries(seriesId)
     }
 
     @Test
@@ -70,42 +71,22 @@ class DetailViewModelTest{
 
     @Test
     fun getSeries() {
-        val film = MutableLiveData<Movies>()
-        film.value = series
+        val course = MutableLiveData<Movies>()
+        course.value = series
 
-        `when`(movieRepo.getSeries(seriesId)).thenReturn(film)
-        val Entity = viewModel.getSeries().value as Movies
+        `when`(movieRepo.getSeries(seriesId)).thenReturn(course)
+        val courseEntity = viewModel1.getSeries().value as Movies
         verify(movieRepo).getSeries(seriesId)
-        assertNotNull(Entity)
-        assertEquals(series.moviesId, Entity.moviesId)
-        assertEquals(series.title, Entity.title)
-        assertEquals(series.release, Entity.release)
-        assertEquals(series.sinopsis, Entity.sinopsis)
-        assertEquals(series.genre, Entity.genre)
-        assertEquals(series.imagePath, Entity.imagePath)
+        assertNotNull(courseEntity)
+        assertEquals(series.moviesId, courseEntity.moviesId)
+        assertEquals(series.title, courseEntity.title)
+        assertEquals(series.release, courseEntity.release)
+        assertEquals(series.sinopsis, courseEntity.sinopsis)
+        assertEquals(series.genre, courseEntity.genre)
+        assertEquals(series.imagePath, courseEntity.imagePath)
 
-        viewModel.getSeries().observeForever(Observer)
-        verify(Observer).onChanged(movies)
+        viewModel1.getSeries().observeForever(Observer)
+        verify(Observer).onChanged(series)
     }
-
-//    @Test
-//    fun getMovie() {
-//        val movie = MutableLiveData<List<Movies>>()
-//        movie.value = movies
-//
-//        `when`(movieRepo.getAllMovie()).thenReturn(movie)
-//        viewModel.setSelectedMovie(movies.moviesId)
-//        val movie = viewModel.getMovie().value as Movies
-//        verify(movieRepo).getAllMovie()
-//        assertNotNull(movie)
-//        assertEquals(movies.moviesId, movie.moviesId)
-//        assertEquals(movies.genre, movie.genre)
-//        assertEquals(movies.sinopsis, movie.sinopsis)
-//        assertEquals(movies.imagePath, movie.imagePath)
-//        assertEquals(movies.title, movie.title)
-//
-//        viewModel.getMovie().observeForever(Observer)
-//        verify(Observer).onChanged(movies)
-//    }
 
 }

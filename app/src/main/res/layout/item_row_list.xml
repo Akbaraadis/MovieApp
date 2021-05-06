@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/shape_item">
+        android:background="@drawable/shape_item"
+        tools:ignore="UselessParent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="80dp"

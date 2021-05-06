@@ -7,6 +7,6 @@ import com.project.movie_jetpack.data.source.MovieRepo
 
 class TvSeriesViewModel (private val movieRepo: MovieRepo) : ViewModel() {
 
-    fun getSerries(): LiveData<List<Movies>> = movieRepo.getAllSeries()
+    fun getSeries(): LiveData<List<Movies>> = movieRepo.getAllSeries()
 
 }
