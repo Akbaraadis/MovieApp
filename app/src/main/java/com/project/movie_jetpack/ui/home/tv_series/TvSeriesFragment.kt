@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.project.movie_jetpack.R
+import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
 import com.project.movie_jetpack.databinding.FragmentSeriesBinding
 
 class TvSeriesFragment: Fragment(R.layout.fragment_series) {
@@ -22,11 +23,19 @@ class TvSeriesFragment: Fragment(R.layout.fragment_series) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvSeriesViewModel::class.java]
-            val viewserries = viewModel.getSerries()
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[TvSeriesViewModel::class.java]
 
             val movieAdapter = TvSeriesAdapter()
-            movieAdapter.setmovies(viewserries)
+
+            _binding.progressBar.visibility = View.VISIBLE
+            viewModel.getSeries().observe(viewLifecycleOwner, { series ->
+                _binding.progressBar.visibility = View.GONE
+                movieAdapter.setmovies(series)
+                movieAdapter.notifyDataSetChanged()
+            })
+
             with(_binding.seriesRvList) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

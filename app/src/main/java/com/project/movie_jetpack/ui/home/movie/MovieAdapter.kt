@@ -3,12 +3,12 @@ package com.project.movie_jetpack.ui.home.movie
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
-import com.project.movie_jetpack.databinding.FragmentMovieBinding
 import com.project.movie_jetpack.databinding.ItemRowListBinding
 import com.project.movie_jetpack.ui.detail.DetailMovieActivity
 
@@ -16,7 +16,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listmovies = ArrayList<Movies>()
 
-    fun setmovies(movies: List<Movies>?) {
+    fun setmovies(movies: List<Movies>) {
         if (movies == null) return
         this.listmovies.clear()
         this.listmovies.addAll(movies)
@@ -39,6 +39,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             with(binding) {
                 tvItemName.text = movies.title
                 tvItemGenre.text = movies.genre
+                tvItemRelease.text = movies.release
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
                     intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.moviesId)

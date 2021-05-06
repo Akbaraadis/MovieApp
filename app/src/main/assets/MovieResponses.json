@@ -1,0 +1,84 @@
+{
+  "movie": [
+    {
+      "id": "m460465",
+      "title": "Mortal Kombat",
+      "overview": "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+      "release_date": "07/04/2021",
+      "genre": "Fantasi, Aksi, Petualangan, Cerita Fiksi, Cerita Seru",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yvcNQv8fth51nWuaLwfpr50IRiO.jpg"
+    },
+    {
+      "id": "m615457",
+      "title": "Nobody",
+      "overview": "Hutch Mansell, a suburban dad, overlooked husband, nothing neighbor — a \"nobody.\" When two thieves break into his home one night, Hutch's unknown long-simmering rage is ignited and propels him on a brutal path that will uncover dark secrets he fought to leave behind.",
+      "release_date": "26/03/2021",
+      "genre": "Aksi, Cerita Seru, Kejahatan",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg"
+    },
+    {
+      "id": "m791373",
+      "title": "Zack Snyder's Justice League",
+      "overview": "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
+      "release_date": "18/03/2021",
+      "genre": "Aksi, Petualangan, Fantasi, Cerita Fiksi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"
+    },
+    {
+      "id": "m634528",
+      "title": "The Marksman",
+      "overview": "Jim Hanson’s quiet life is suddenly disturbed by two people crossing the US/Mexico border – a woman and her young son – desperate to flee a Mexican cartel. After a shootout leaves the mother dead, Jim becomes the boy’s reluctant defender. He embraces his role as Miguel’s protector and will stop at nothing to get him to safety, as they go on the run from the relentless assassins.",
+      "release_date": "15/01/2021",
+      "genre": "Aksi, Cerita Seru, Kejahatan",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6vcDalR50RWa309vBH1NLmG2rjQ.jpg"
+    },
+    {
+      "id": "m587807",
+      "title": "Tom & Jerry",
+      "overview": "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
+      "release_date": "10/03/2021",
+      "genre": "Komedi, Keluarga, Animasi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yMoMlJo2msoVwmuf6k1C78MrB3H.jpg"
+    },
+    {
+      "id": "m458576",
+      "title": "Monster Hunter",
+      "overview": "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
+      "release_date": "13/01/2021",
+      "genre": "Fantasi, Aksi, Petualangan",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uwjaCH7PiWrkz7oWJ4fcL3xGrb0.jpg"
+    },
+    {
+      "id": "m527774",
+      "title": "Raya and the Last Dragon",
+      "overview": "Dahulu kala, di dunia fantasi Kumandra, manusia dan naga hidup bersama secara harmonis. Tetapi ketika kekuatan jahat mengancam negeri itu, para naga mengorbankan diri mereka untuk menyelamatkan umat manusia. Sekarang, 500 tahun kemudian, kejahatan yang sama telah kembali dan terserah seorang pejuang tunggal, Raya, untuk melacak naga terakhir yang legendaris untuk memulihkan tanah yang retak dan orang-orangnya yang terpecah.",
+      "release_date": "03/03/2021",
+      "genre": "Animasi, Petualangan, Fantasi, Keluarga, Aksi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2AZIBU24AUn3c81WKinupffALjP.jpg"
+    },
+    {
+      "id": "m736069",
+      "title": "Justice Society: World War II",
+      "overview": "While speeding off to help in an impromptu battle, The Flash blazes and rips through time, only to find himself dropped into the middle of World War II. It’s here that The Flash meets Wonder Woman and her top secret team, known as the Justice Society of America. Amidst the raging tides of war, gripping combat and the velocity of valor, The Flash must fight to return to his own timeline.",
+      "release_date": "27/04/2021",
+      "genre": "Animasi, Kejahatan, Cerita Fiksi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/e4REOC6CZW8J6FslA4nRvdQXFXR.jpg"
+    },
+    {
+      "id": "m664767",
+      "title": "Mortal Kombat Legends: Scorpion's Revenge",
+      "overview": "After the vicious slaughter of his family by stone-cold mercenary Sub-Zero, Hanzo Hasashi is exiled to the torturous Netherrealm. There, in exchange for his servitude to the sinister Quan Chi, he’s given a chance to avenge his family – and is resurrected as Scorpion, a lost soul bent on revenge. Back on Earthrealm, Lord Raiden gathers a team of elite warriors – Shaolin monk Liu Kang, Special Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of heroes with one chance to save humanity. To do this, they must defeat Shang Tsung’s horde of Outworld gladiators and reign over the Mortal Kombat tournament.",
+      "release_date": "12/04/2020",
+      "genre": "Animasi, Aksi, Fantasi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4VlXER3FImHeFuUjBShFamhIp9M.jpg"
+    },
+    {
+      "id": "m299536",
+      "title": "Avengers: Infinity War",
+      "overview": "Karena Avengers dan sekutunya terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh seorang pahlawan, bahaya baru telah muncul dari bayangan kosmik: Thanos. Seorang lalim penghujatan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan yang tak terbayangkan, dan menggunakannya untuk menimbulkan kehendak memutar pada semua realitas. Segala sesuatu yang telah diperjuangkan oleh Avengers telah berkembang hingga saat ini - nasib Bumi dan keberadaannya sendiri tidak pernah lebih pasti.",
+      "release_date": "27/04/2018",
+      "genre": "Petualangan, Aksi, Cerita Fiksi",
+      "imagePath": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+    }
+  ]
+}

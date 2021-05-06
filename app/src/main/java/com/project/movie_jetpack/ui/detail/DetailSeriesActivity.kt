@@ -1,8 +1,8 @@
 package com.project.movie_jetpack.ui.detail
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -10,22 +10,22 @@ import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
-import com.project.movie_jetpack.databinding.ActivityDetailMovieBinding
+import com.project.movie_jetpack.databinding.ActivityDetailSeriesBinding
 
-class DetailMovieActivity : AppCompatActivity() {
+class DetailSeriesActivity : AppCompatActivity() {
 
     companion object {
-        const val EXTRA_MOVIE = "extra_movie"
+        const val EXTRA_SERIES = "extra_series"
     }
 
-    private lateinit var binding: ActivityDetailMovieBinding
+    private lateinit var binding: ActivityDetailSeriesBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_movie)
+        setContentView(R.layout.activity_detail_series)
 
-        binding = ActivityDetailMovieBinding.inflate(layoutInflater)
+        binding = ActivityDetailSeriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -36,25 +36,25 @@ class DetailMovieActivity : AppCompatActivity() {
 
         val extras = intent.extras
         if (extras != null) {
-            val movieId = extras.getString(EXTRA_MOVIE)
+            val movieId = extras.getString(EXTRA_SERIES)
             if (movieId != null) {
 
                 binding.progressBar.visibility = View.VISIBLE
                 binding.detailContent.visibility = View.INVISIBLE
 
-                viewModel.setSelectedMovie(movieId)
-                viewModel.getMovie().observe(this, { modules ->
+                viewModel.setSelectedSeries(movieId)
+                viewModel.getSeries().observe(this, { modules ->
                     binding.progressBar.visibility = View.GONE
                     binding.detailContent.visibility = View.VISIBLE
-                    viewModel.setSelectedMovie(modules.toString())
+                    viewModel.setSelectedSeries(modules.toString())
                 })
-                viewModel.getMovie().observe(this, { movie -> showMovie(movie) })
+                viewModel.getSeries().observe(this, { series -> showSeries(series) })
 
             }
         }
     }
 
-    private fun showMovie(movie: Movies) {
+    private fun showSeries(movie: Movies) {
         binding.apply {
             detailTvTitle.text = movie.title
             detailTvGenre.text = movie.genre
@@ -63,16 +63,18 @@ class DetailMovieActivity : AppCompatActivity() {
         }
 
         Glide.with(this)
-                .load(movie.imagePath)
-                .transform(RoundedCorners(20))
-                .apply(RequestOptions.placeholderOf(R.drawable.ic_baseline_refresh_24)
-                        .error(R.drawable.ic_baseline_error_24))
-                .into(binding.detailIvPoster)
+            .load(movie.imagePath)
+            .transform(RoundedCorners(20))
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_baseline_refresh_24)
+                .error(R.drawable.ic_baseline_error_24))
+            .into(binding.detailIvPoster)
 
         Glide.with(this)
             .load(movie.imagePath)
             .transform(RoundedCorners(20))
-            .apply(RequestOptions.placeholderOf(R.drawable.ic_baseline_refresh_24)
+            .apply(
+                RequestOptions.placeholderOf(R.drawable.ic_baseline_refresh_24)
                 .error(R.drawable.ic_baseline_error_24))
             .into(binding.bgImage)
 
