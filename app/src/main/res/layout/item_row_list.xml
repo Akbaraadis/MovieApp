@@ -42,6 +42,14 @@
                 style="@style/textTitle"/>
 
             <TextView
+                android:id="@+id/tv_item_release"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textDescription"
+                android:ellipsize="end"
+                tools:text="@string/release"/>
+
+            <TextView
                 android:id="@+id/tv_item_genre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

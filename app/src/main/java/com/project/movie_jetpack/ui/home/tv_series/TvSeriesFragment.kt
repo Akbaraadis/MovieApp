@@ -26,10 +26,16 @@ class TvSeriesFragment: Fragment(R.layout.fragment_series) {
 
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[TvSeriesViewModel::class.java]
-            val viewserries = viewModel.getSerries()
 
             val movieAdapter = TvSeriesAdapter()
-            movieAdapter.setmovies(viewserries)
+
+            _binding.progressBar.visibility = View.VISIBLE
+            viewModel.getSerries().observe(viewLifecycleOwner, { series ->
+                _binding.progressBar.visibility = View.GONE
+                movieAdapter.setmovies(series)
+                movieAdapter.notifyDataSetChanged()
+            })
+
             with(_binding.seriesRvList) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

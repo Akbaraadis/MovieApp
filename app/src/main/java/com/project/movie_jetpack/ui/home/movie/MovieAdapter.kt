@@ -16,7 +16,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listmovies = ArrayList<Movies>()
 
-    fun setmovies(movies: LiveData<List<Movies>>) {
+    fun setmovies(movies: List<Movies>) {
         if (movies == null) return
         this.listmovies.clear()
         this.listmovies.addAll(movies)
@@ -39,6 +39,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
             with(binding) {
                 tvItemName.text = movies.title
                 tvItemGenre.text = movies.genre
+                tvItemRelease.text = movies.release
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
                     intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.moviesId)

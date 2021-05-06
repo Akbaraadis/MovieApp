@@ -7,9 +7,9 @@ interface MovieDataSource {
 
     fun getAllMovie(): LiveData<List<Movies>>
 
-//    fun getMovie(movieId: String): LiveData<Movies>
+    fun getMovie(movieId: String): LiveData<Movies>
 
     fun getAllSeries(): LiveData<List<Movies>>
 
-//    fun getSeries(movieId: String): LiveData<Movies>
+    fun getSeries(movieId: String): LiveData<Movies>
 }

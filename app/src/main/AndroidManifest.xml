@@ -11,6 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Movie_Jetpack">
+        <activity android:name=".ui.detail.DetailSeriesActivity"
+            android:label="@string/title_activity_detail_movie"
+            android:parentActivityName=".ui.home.HomeActivity"
+            android:theme="@style/Theme.Movie_Jetpack.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.project.movie_jetpack.ui.home.HomeActivity" />
+        </activity>
         <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +35,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.project.movie_jetpack.ui.home.HomeActivity" />
         </activity>
-        <activity android:name=".ui.home.HomeActivity"/>
+        <activity android:name=".ui.home.HomeActivity" />
     </application>
 
 </manifest>

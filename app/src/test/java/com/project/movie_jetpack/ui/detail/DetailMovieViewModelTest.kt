@@ -20,7 +20,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class DetailMovieViewModelTest{
 
-    private lateinit var viewModel: DetailMovieViewModel
+    private lateinit var viewModel: DetailViewModel
     private val movies = MoviesData.generateMovies()[0]
     private val movieId = movies.moviesId
 
@@ -38,13 +38,13 @@ class DetailMovieViewModelTest{
 
     @Before
     fun setUpMovie() {
-        viewModel = DetailMovieViewModel(movieRepo)
+        viewModel = DetailViewModel(movieRepo)
         viewModel.setSelectedMovie(movieId)
     }
 
     @Before
     fun setUpSeries() {
-        viewModel = DetailMovieViewModel(movieRepo)
+        viewModel = DetailViewModel(movieRepo)
         viewModel.setSelectedMovie(seriesId)
     }
 

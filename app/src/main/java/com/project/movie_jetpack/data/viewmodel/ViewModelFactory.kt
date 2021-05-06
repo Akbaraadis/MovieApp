@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.project.movie_jetpack.data.di.DiModule
 import com.project.movie_jetpack.data.source.MovieRepo
-import com.project.movie_jetpack.ui.detail.DetailMovieViewModel
+import com.project.movie_jetpack.ui.detail.DetailViewModel
 import com.project.movie_jetpack.ui.home.movie.MovieViewModel
 import com.project.movie_jetpack.ui.home.tv_series.TvSeriesViewModel
 
@@ -32,8 +32,8 @@ class ViewModelFactory private constructor(private val mMovieRepo: MovieRepo) : 
             modelClass.isAssignableFrom(TvSeriesViewModel::class.java) -> {
                 return TvSeriesViewModel(mMovieRepo) as T
             }
-            modelClass.isAssignableFrom(DetailMovieViewModel::class.java) -> {
-                return DetailMovieViewModel(mMovieRepo) as T
+            modelClass.isAssignableFrom(DetailViewModel::class.java) -> {
+                return DetailViewModel(mMovieRepo) as T
             }
 
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)

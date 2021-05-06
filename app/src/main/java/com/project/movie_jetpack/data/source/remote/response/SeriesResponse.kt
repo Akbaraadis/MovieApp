@@ -9,5 +9,6 @@ data class SeriesResponse(
         var title: String,
         var release_date: String,
         var overview: String,
+        var genre: String,
         var imagePath: String
 ): Parcelable

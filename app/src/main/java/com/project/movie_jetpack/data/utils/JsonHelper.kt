@@ -35,9 +35,10 @@ class JsonHelper(private val context: Context) {
                 val title = movie.getString("title")
                 val release_date = movie.getString("release_date")
                 val overview = movie.getString("overview")
+                val genre = movie.getString("genre")
                 val imagePath = movie.getString("imagePath")
 
-                val movieResponse = MovieResponse(id, title, release_date, overview, imagePath)
+                val movieResponse = MovieResponse(id, title, release_date, overview, genre, imagePath)
                 list.add(movieResponse)
             }
         } catch (e: JSONException) {
@@ -53,15 +54,16 @@ class JsonHelper(private val context: Context) {
             val responseObject = JSONObject(parsingFileToString("SeriesResponses.json").toString())
             val listArray = responseObject.getJSONArray("series")
             for (i in 0 until listArray.length()) {
-                val course = listArray.getJSONObject(i)
+                val series = listArray.getJSONObject(i)
 
-                val id = course.getString("id")
-                val title = course.getString("title")
-                val release_date = course.getString("release_date")
-                val overview = course.getString("overview")
-                val imagePath = course.getString("imagePath")
+                val id = series.getString("id")
+                val title = series.getString("title")
+                val release_date = series.getString("release_date")
+                val overview = series.getString("overview")
+                val genre = series.getString("genre")
+                val imagePath = series.getString("imagePath")
 
-                val SeriesResponse = SeriesResponse(id, title, release_date, overview, imagePath)
+                val SeriesResponse = SeriesResponse(id, title, release_date, overview, genre, imagePath)
                 list.add(SeriesResponse)
             }
         } catch (e: JSONException) {

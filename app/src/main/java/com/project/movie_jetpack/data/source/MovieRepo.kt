@@ -29,6 +29,7 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
                         response.title,
                         response.release_date,
                         response.overview,
+                        response.genre,
                         response.imagePath
                     )
                     movieList.add(movie)
@@ -39,29 +40,30 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
         return movieResults
     }
 
-//    override fun getMovie(movieId: String): LiveData<Movies> {
-//
-//        val movieResult = MutableLiveData<Movies>()
-//
-//        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMovieCallback {
-//            override fun onAllMovieReceived(movieResponses: List<MovieResponse>) {
-//                lateinit var movie: Movies
-//                for (response in movieResponses) {
-//                    if (response.id == movieId) {
-//                        movie = Movies(
-//                            response.id,
-//                            response.title,
-//                            response.release_date,
-//                            response.overview,
-//                            response.imagePath
-//                        )
-//                    }
-//                }
-//                movieResult.postValue(movie)
-//            }
-//        })
-//        return movieResult
-//    }
+    override fun getMovie(movieId: String): LiveData<Movies> {
+
+        val movieResult = MutableLiveData<Movies>()
+
+        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMovieCallback {
+            override fun onAllMovieReceived(movieResponses: List<MovieResponse>) {
+                lateinit var movie: Movies
+                for (response in movieResponses) {
+                    if (response.id == movieId) {
+                        movie = Movies(
+                            response.id,
+                            response.title,
+                            response.release_date,
+                            response.overview,
+                            response.genre,
+                            response.imagePath
+                        )
+                    }
+                }
+                movieResult.postValue(movie)
+            }
+        })
+        return movieResult
+    }
 
     override fun getAllSeries(): LiveData<List<Movies>> {
         val seriesResults = MutableLiveData<List<Movies>>()
@@ -74,6 +76,7 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
                         response.title,
                         response.release_date,
                         response.overview,
+                        response.genre,
                         response.imagePath
                     )
                     seriesList.add(series)
@@ -84,27 +87,28 @@ class MovieRepo private constructor(private val remoteDataSource: RemoteDataSour
         return seriesResults
     }
 
-//    override fun getSeries(movieId: String): LiveData<Movies> {
-//
-//        val seriesResult = MutableLiveData<Movies>()
-//
-//        remoteDataSource.getAllSeries(object : RemoteDataSource.LoadSeriesCallback {
-//            override fun onAllSeriesReceived(seriesResponses: List<SeriesResponse>) {
-//                lateinit var series: Movies
-//                for (response in seriesResponses) {
-//                    if (response.id == movieId) {
-//                        series = Movies(
-//                            response.id,
-//                            response.title,
-//                            response.release_date,
-//                            response.overview,
-//                            response.imagePath
-//                        )
-//                    }
-//                }
-//                seriesResult.postValue(series)
-//            }
-//        })
-//        return seriesResult
-//    }
+    override fun getSeries(movieId: String): LiveData<Movies> {
+
+        val seriesResult = MutableLiveData<Movies>()
+
+        remoteDataSource.getAllSeries(object : RemoteDataSource.LoadSeriesCallback {
+            override fun onAllSeriesReceived(seriesResponses: List<SeriesResponse>) {
+                lateinit var series: Movies
+                for (response in seriesResponses) {
+                    if (response.id == movieId) {
+                        series = Movies(
+                            response.id,
+                            response.title,
+                            response.release_date,
+                            response.overview,
+                            response.genre,
+                            response.imagePath
+                        )
+                    }
+                }
+                seriesResult.postValue(series)
+            }
+        })
+        return seriesResult
+    }
 }
