@@ -1,7 +1,8 @@
 package com.project.movie_jetpack.data.utils
 
-import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.remote.response.MovieResponse
+import com.project.movie_jetpack.data.source.remote.response.SeriesResponse
 
 object MoviesData {
 
@@ -158,4 +159,135 @@ object MoviesData {
 
         return series
     }
+
+    fun generateRemoteMovie(): List<MovieResponse> {
+        val movie = ArrayList<MovieResponse>()
+        movie.add(MovieResponse("m460465",
+                "Mortal Kombat",
+                "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+                "07/04/2021",
+                "Fantasi, Aksi, Petualangan, Cerita Fiksi, Cerita Seru",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yvcNQv8fth51nWuaLwfpr50IRiO.jpg"))
+        movie.add(MovieResponse("m615457",
+                "Nobody",
+                "Hutch Mansell, a suburban dad, overlooked husband, nothing neighbor — a \"nobody.\" When two thieves break into his home one night, Hutch's unknown long-simmering rage is ignited and propels him on a brutal path that will uncover dark secrets he fought to leave behind.",
+                "26/03/2021",
+                "Aksi, Cerita Seru, Kejahatan",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg"))
+        movie.add(MovieResponse("m791373",
+                "Zack Snyder's Justice League",
+                "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
+                "18/03/2021",
+                "Aksi, Petualangan, Fantasi, Cerita Fiksi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"))
+        movie.add(MovieResponse("m634528",
+                "The Marksman",
+                "Jim Hanson’s quiet life is suddenly disturbed by two people crossing the US/Mexico border – a woman and her young son – desperate to flee a Mexican cartel. After a shootout leaves the mother dead, Jim becomes the boy’s reluctant defender. He embraces his role as Miguel’s protector and will stop at nothing to get him to safety, as they go on the run from the relentless assassins.",
+                "15/01/2021",
+                "Aksi, Cerita Seru, Kejahatan",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6vcDalR50RWa309vBH1NLmG2rjQ.jpg"))
+        movie.add(MovieResponse("m587807",
+                "Tom & Jerry",
+                "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
+                "10/03/2021",
+                "Komedi, Keluarga, Animasi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yMoMlJo2msoVwmuf6k1C78MrB3H.jpg"))
+        movie.add(MovieResponse("m458576",
+                "Monster Hunter",
+                "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
+                "13/01/2021",
+                "Fantasi, Aksi, Petualangan",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uwjaCH7PiWrkz7oWJ4fcL3xGrb0.jpg"))
+        movie.add(MovieResponse("m527774",
+                "Raya and the Last Dragon",
+                "Dahulu kala, di dunia fantasi Kumandra, manusia dan naga hidup bersama secara harmonis. Tetapi ketika kekuatan jahat mengancam negeri itu, para naga mengorbankan diri mereka untuk menyelamatkan umat manusia. Sekarang, 500 tahun kemudian, kejahatan yang sama telah kembali dan terserah seorang pejuang tunggal, Raya, untuk melacak naga terakhir yang legendaris untuk memulihkan tanah yang retak dan orang-orangnya yang terpecah.",
+                "03/03/2021",
+                "Animasi, Petualangan, Fantasi, Keluarga, Aksi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2AZIBU24AUn3c81WKinupffALjP.jpg"))
+        movie.add(MovieResponse("m736069",
+                "Justice Society: World War II",
+                "While speeding off to help in an impromptu battle, The Flash blazes and rips through time, only to find himself dropped into the middle of World War II. It’s here that The Flash meets Wonder Woman and her top secret team, known as the Justice Society of America. Amidst the raging tides of war, gripping combat and the velocity of valor, The Flash must fight to return to his own timeline.",
+                "27/04/2021",
+                "Animasi, Kejahatan, Cerita Fiksi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/e4REOC6CZW8J6FslA4nRvdQXFXR.jpg"))
+        movie.add(MovieResponse("m664767",
+                "Mortal Kombat Legends: Scorpion's Revenge",
+                "After the vicious slaughter of his family by stone-cold mercenary Sub-Zero, Hanzo Hasashi is exiled to the torturous Netherrealm. There, in exchange for his servitude to the sinister Quan Chi, he’s given a chance to avenge his family – and is resurrected as Scorpion, a lost soul bent on revenge. Back on Earthrealm, Lord Raiden gathers a team of elite warriors – Shaolin monk Liu Kang, Special Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of heroes with one chance to save humanity. To do this, they must defeat Shang Tsung’s horde of Outworld gladiators and reign over the Mortal Kombat tournament.",
+                "12/04/2020",
+                "Animasi, Aksi, Fantasi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4VlXER3FImHeFuUjBShFamhIp9M.jpg"))
+        movie.add(MovieResponse("m299536",
+                "Avengers: Infinity War",
+                "Karena Avengers dan sekutunya terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh seorang pahlawan, bahaya baru telah muncul dari bayangan kosmik: Thanos. Seorang lalim penghujatan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan yang tak terbayangkan, dan menggunakannya untuk menimbulkan kehendak memutar pada semua realitas. Segala sesuatu yang telah diperjuangkan oleh Avengers telah berkembang hingga saat ini - nasib Bumi dan keberadaannya sendiri tidak pernah lebih pasti.",
+                "27/04/2018",
+                "Petualangan, Aksi, Cerita Fiksi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"))
+        return movie
+    }
+
+    fun generateRemoteSeries(): List<SeriesResponse> {
+        val series = ArrayList<SeriesResponse>()
+        series.add(SeriesResponse("t100",
+                "I Am Not an Animal",
+                "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
+                "2004",
+                "Animasi, Komedi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg"))
+        series.add(SeriesResponse("t83097",
+                "The Promised Neverland",
+                "Surrounded by a forest and a gated entrance, the Grace Field House is inhabited by orphans happily living together as one big family, looked after by their \"Mama,\" Isabella. Although they are required to take tests daily, the children are free to spend their time as they see fit, usually playing outside, as long as they do not venture too far from the orphanage — a rule they are expected to follow no matter what. However, all good times must come to an end, as every few months, a child is adopted and sent to live with their new family... never to be heard from again.\n\nHowever, the three oldest siblings have their suspicions about what is actually happening at the orphanage, and they are about to discover the cruel fate that awaits the children living at Grace Field, including the twisted nature of their beloved Mama.",
+                "2019",
+                "Animasi, Misteri, Sci-fi & Fantasy, Aksi & Petualangan, Drama",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8RWcKSmCbwsN8porFyTOB5e2cDG.jpg"))
+        series.add(SeriesResponse("t83095",
+                "盾の勇者の成り上がり",
+                "Iwatani Naofumi was summoned into a parallel world along with 3 other people to become the world's Heroes. Each of the heroes respectively equipped with their own legendary equipment when summoned, Naofumi received the Legendary Shield as his weapon. Due to Naofumi's lack of charisma and experience he's labeled as the weakest, only to end up betrayed, falsely accused, and robbed by on the third day of adventure. Shunned by everyone from the king to peasants, Naofumi's thoughts were filled with nothing but vengeance and hatred. Thus, his destiny in a parallel World begins...",
+                "2019",
+                "Animasi, Aksi & Petualangan, Sci-fi & Fantasy, Drama",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8yazU3CEZa97RPTMlWCc9LO4F4E.jpg"))
+        series.add(SeriesResponse("t61663",
+                "Your Lie in April",
+                "Kousei Arima was a genius pianist until his mother's sudden death took away his ability to play. Each day was dull for Kousei. But, then he meets a violinist named Kaori Miyazono who has an eccentric playing style. Can the heartfelt sounds of the girl's violin lead the boy to play the piano again?",
+                "2014",
+                "Animasi, Komedi, Drama",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rWZS22W0JgbrcQtSWDT2GvD4ilU.jpg"))
+        series.add(SeriesResponse("t95557",
+                "Invincible",
+                "Mark Grayson is a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his seventeenth birthday, Mark begins to develop powers of his own and enters into his father’s tutelage.",
+                "2021",
+                "Animasi, Aksi & Petualangan, Drama, Sci-fi & Fantasy",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg"))
+        series.add(SeriesResponse("t84669",
+                "The Quintessential Quintuplets",
+                "Fuutarou Uesugi is a poor, antisocial ace student who one day meets the rich transfer student Itsuki Nakano. They argue but when Uesugi realizes he is to be her tutor, he tries to get on better terms. While trying to do so he meets four other girls.",
+                "2019",
+                "Animasi, Komedi, Drama",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zIBfMBcV7ENjEfuFx93xJYnOtLs.jpg"))
+        series.add(SeriesResponse("t60863",
+                "Haikyu!!",
+                "Shōyō Hinata was inspired to play volleyball after seeing Kurasuno High School's \"little giant\" competing in the national tournament on TV. He trains relentlessly to make up for his lack of height, but suffers a crushing defeat in his first and last tournament of middle school at the hands of his rival Tobio Kageyama. Vowing revenge against Kageyama and hoping to follow in the little giant's footsteps, Hinata joins Kurasuno High School's volleyball team. To his initial dismay, Kageyama is also on Kurasuno's team. The former rivals soon overcome their differences though and combine their strengths to form a legendary combo using Hinata's mobility and Kageyama's precision ball-handling. Together with their team, they compete in prefecture tournaments and promise to meet Kurasuno's fated rival school at nationals.",
+                "2014",
+                "Komedi, Drama, Animasi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qNKaeunuUdL0smnowVVgShCkWZ4.jpg"))
+        series.add(SeriesResponse("t86031",
+                "ドクターストーン",
+                "One fateful day, all of humanity was petrified by a blinding flash of light. After several millennia, high schooler Taiju awakens and finds himself lost in a world of statues. However, he's not alone! His science-loving friend Senku's been up and running for a few months and he's got a grand plan in mind, to kickstart civilization with the power of science!",
+                "2019",
+                "Aksi & Petualangan, Animasi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/jWGMYA1WzzqwrLILz5dPGiiTgZP.jpg"))
+        series.add(SeriesResponse("t75006",
+                "The Umbrella Academy",
+                "A dysfunctional family of superheroes comes together to solve the mystery of their father's death, the threat of the apocalypse and more.",
+                "2019",
+                "Aksi & Petualangan, Sci-fi & Fantasy, Drama",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/uYHdIs5O8tiU5p6MvUPd2jElOH6.jpg"))
+        series.add(SeriesResponse("t37854",
+                "One Piece",
+                "Gol D Roger dikenal sebagai Raja Bajak Laut, Orang terkuat dan paling terkenal yang pernah mengarungi Grand Line. Penangkapan dan Eksekusi Roger oleh Pemerintahan Dunia telah membawa perubahan di seluruh dunia. Kata kata terakhir sebelum kematiannya mengungkapkan lokasi dari harta karun terbesar di dunia, One Piece. Inilah awal dari era bajak laut, semua orang bermimpi menemukan One Piece (yang mana menjanjikan harta dan tahta yang tak terhingga jumlahnya), dan tentunya merebut gelar dari orang yang pertama menemukannya, gelar Raja Bajak Laut. Monkey D Luffy.",
+                "1999",
+                "Aksi & Petualangan, Komedi, Animasi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oag7edI9flSMawmNySEiSEJAbrf.jpg"))
+        return series
+    }
+
 }
