@@ -1,9 +1,12 @@
 package com.project.movie_jetpack.ui.detail
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
+import com.project.movie_jetpack.data.source.local.entity.MovieEntity
+import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.data.utils.MoviesData
 
 class DetailViewModel (private val movieRepo: MovieRepo) : ViewModel() {
@@ -19,8 +22,8 @@ class DetailViewModel (private val movieRepo: MovieRepo) : ViewModel() {
         this.seriesId = seriesId
     }
 
-    fun getMovie(): LiveData<Movies> = movieRepo.getMovie(movieId)
+    fun getMovie(): LiveData<MovieEntity> = movieRepo.getMovie(movieId)
 
-    fun getSeries(): LiveData<Movies> = movieRepo.getSeries(seriesId)
+    fun getSeries(): LiveData<SeriesEntity> = movieRepo.getSeries(seriesId)
 
 }

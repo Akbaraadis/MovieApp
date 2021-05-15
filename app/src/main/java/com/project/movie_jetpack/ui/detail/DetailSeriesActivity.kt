@@ -9,6 +9,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
 import com.project.movie_jetpack.databinding.ActivityDetailSeriesBinding
 
@@ -54,7 +55,7 @@ class DetailSeriesActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSeries(movie: Movies) {
+    private fun showSeries(movie: SeriesEntity) {
         binding.apply {
             detailTvTitle.text = movie.title
             detailTvGenre.text = movie.genre

@@ -3,20 +3,19 @@ package com.project.movie_jetpack.ui.home.movie
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
-import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.databinding.ItemRowListBinding
 import com.project.movie_jetpack.ui.detail.DetailMovieActivity
 
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    private var listmovies = ArrayList<Movies>()
+    private var listmovies = ArrayList<MovieEntity>()
 
-    fun setmovies(movies: List<Movies>) {
+    fun setmovies(movies: List<MovieEntity>) {
         if (movies == null) return
         this.listmovies.clear()
         this.listmovies.addAll(movies)
@@ -35,14 +34,14 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     override fun getItemCount(): Int = listmovies.size
 
     class MovieViewHolder(private val binding: ItemRowListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movies: Movies) {
+        fun bind(movies: MovieEntity) {
             with(binding) {
                 tvItemName.text = movies.title
                 tvItemGenre.text = movies.genre
                 tvItemRelease.text = movies.release
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.moviesId)
+                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.movieId)
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)

@@ -3,21 +3,20 @@ package com.project.movie_jetpack.ui.home.tv_series
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.databinding.ItemRowListBinding
-import com.project.movie_jetpack.ui.detail.DetailMovieActivity
 import com.project.movie_jetpack.ui.detail.DetailSeriesActivity
 
 class TvSeriesAdapter : RecyclerView.Adapter<TvSeriesAdapter.MovieViewHolder>() {
 
-    private var listmovies = ArrayList<Movies>()
+    private var listmovies = ArrayList<SeriesEntity>()
 
-    fun setmovies(movies: List<Movies>) {
+    fun setmovies(movies: List<SeriesEntity>) {
         if (movies == null) return
         this.listmovies.clear()
         this.listmovies.addAll(movies)
@@ -36,14 +35,14 @@ class TvSeriesAdapter : RecyclerView.Adapter<TvSeriesAdapter.MovieViewHolder>() 
     override fun getItemCount(): Int = listmovies.size
 
     class MovieViewHolder(private val binding: ItemRowListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movies: Movies) {
+        fun bind(movies: SeriesEntity) {
             with(binding) {
                 tvItemName.text = movies.title
                 tvItemGenre.text = movies.genre
                 tvItemRelease.text = movies.release
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailSeriesActivity::class.java)
-                    intent.putExtra(DetailSeriesActivity.EXTRA_SERIES, movies.moviesId)
+                    intent.putExtra(DetailSeriesActivity.EXTRA_SERIES, movies.movieId)
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)

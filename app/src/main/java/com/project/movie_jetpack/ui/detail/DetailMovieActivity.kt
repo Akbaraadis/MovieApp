@@ -9,6 +9,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
+import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
 import com.project.movie_jetpack.databinding.ActivityDetailMovieBinding
 
@@ -43,10 +44,11 @@ class DetailMovieActivity : AppCompatActivity() {
                 binding.detailContent.visibility = View.INVISIBLE
 
                 viewModel.setSelectedMovie(movieId)
-                viewModel.getMovie().observe(this, { modules ->
+
+                viewModel.getMovie().observe(this, { movie ->
                     binding.progressBar.visibility = View.GONE
                     binding.detailContent.visibility = View.VISIBLE
-                    viewModel.setSelectedMovie(modules.toString())
+                    viewModel.setSelectedMovie(movie.movieId)
                 })
                 viewModel.getMovie().observe(this, { movie -> showMovie(movie) })
 
@@ -54,7 +56,7 @@ class DetailMovieActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMovie(movie: Movies) {
+    private fun showMovie(movie: MovieEntity) {
         binding.apply {
             detailTvTitle.text = movie.title
             detailTvGenre.text = movie.genre
