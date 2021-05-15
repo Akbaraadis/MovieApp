@@ -1,13 +1,12 @@
 package com.project.movie_jetpack.ui.detail
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
-import com.project.movie_jetpack.data.utils.MoviesData
+import com.project.movie_jetpack.data.vo.Resource
 
 class DetailViewModel (private val movieRepo: MovieRepo) : ViewModel() {
 
@@ -25,5 +24,26 @@ class DetailViewModel (private val movieRepo: MovieRepo) : ViewModel() {
     fun getMovie(): LiveData<MovieEntity> = movieRepo.getMovie(movieId)
 
     fun getSeries(): LiveData<SeriesEntity> = movieRepo.getSeries(seriesId)
+
+//    var courseModule: LiveData<Resource<CourseWithModule>> = Transformations.switchMap(courseId) { mCourseId ->
+//        academyRepository.getCourseWithModules(mCourseId)
+//    }
+//
+//    fun setBookmark() {
+//        val moduleResource = courseModule.value
+//        if (moduleResource != null) {
+//            val courseWithModule = moduleResource.data
+//            if (courseWithModule != null) {
+//                val courseEntity = courseWithModule.mCourse
+//                val newState = !courseEntity.bookmarked
+//                academyRepository.setCourseBookmark(courseEntity, newState)
+//            }
+//        }
+//    }
+
+//    fun setFavoriteMovie(movieId: String){
+//        val movieFavorite = LiveData<MovieEntity>
+//        movieRepo.setMovieFavorite(movieId, true)
+//    }
 
 }
