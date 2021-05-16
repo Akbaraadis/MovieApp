@@ -20,27 +20,27 @@ class FavSeriesFragment: Fragment(R.layout.fragment_favseries) {
         return _binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        if (activity != null) {
-//
-//            val factory = ViewModelFactory.getInstance(requireActivity())
-//            val viewModel = ViewModelProvider(this, factory)[FavSeriesViewModel::class.java]
-//
-//            val movieAdapter = FavSeriesAdapter()
-//            _binding.progressBar.visibility = View.VISIBLE
-//            viewModel.getFavoriteMovie().observe(viewLifecycleOwner, { series ->
-//                _binding.progressBar.visibility = View.GONE
-//                movieAdapter.setseries(series)
-//                movieAdapter.notifyDataSetChanged()
-//            })
-//
-//            with(_binding.seriesRvList) {
-//                layoutManager = LinearLayoutManager(context)
-//                setHasFixedSize(true)
-//                adapter = movieAdapter
-//            }
-//        }
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (activity != null) {
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[FavSeriesViewModel::class.java]
+
+            val movieAdapter = FavSeriesAdapter()
+            _binding.progressBar.visibility = View.VISIBLE
+            viewModel.getFavoriteMovie().observe(viewLifecycleOwner, { series ->
+                _binding.progressBar.visibility = View.GONE
+                movieAdapter.setseries(series)
+                movieAdapter.notifyDataSetChanged()
+            })
+
+            with(_binding.seriesRvList) {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
+        }
+    }
 
 }

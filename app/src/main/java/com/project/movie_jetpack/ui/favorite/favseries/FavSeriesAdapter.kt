@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.databinding.ItemRowListBinding
-import com.project.movie_jetpack.ui.detail.DetailMovieActivity
+import com.project.movie_jetpack.ui.detail.DetailSeriesActivity
 
 class FavSeriesAdapter: RecyclerView.Adapter<FavSeriesAdapter.SeriesViewHolder>() {
 
@@ -42,8 +42,8 @@ class FavSeriesAdapter: RecyclerView.Adapter<FavSeriesAdapter.SeriesViewHolder>(
                 tvItemGenre.text = movies.genre
                 tvItemRelease.text = movies.release
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailMovieActivity::class.java)
-                    intent.putExtra(DetailMovieActivity.EXTRA_MOVIE, movies.movieId)
+                    val intent = Intent(itemView.context, DetailSeriesActivity::class.java)
+                    intent.putExtra(DetailSeriesActivity.EXTRA_SERIES, movies.movieId)
                     itemView.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)

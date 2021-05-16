@@ -20,32 +20,32 @@ class FavMovieFragment: Fragment(R.layout.fragment_favmovie) {
         return _binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        if (activity != null) {
-//
-//            val factory = ViewModelFactory.getInstance(requireActivity())
-//            val viewModel = ViewModelProvider(this, factory)[FavMovieViewModel::class.java]
-//
-//            val movieAdapter = FavMovieAdapter()
-//            _binding.progressBar.visibility = View.VISIBLE
-//            viewModel.getFavoriteMovie().observe(viewLifecycleOwner, { movie ->
-//                _binding.progressBar.visibility = View.GONE
-//                movieAdapter.setmovies(movie)
-//                movieAdapter.notifyDataSetChanged()
-//            })
-//
-//            with(_binding.movieRvList) {
-//                layoutManager = LinearLayoutManager(context)
-//                setHasFixedSize(true)
-//                adapter = movieAdapter
-//            }
-//        }
-//        else{
-//            _binding.apply {
-//                ivFavmovKosong.visibility = View.VISIBLE
-//                tvFavmovKosong.visibility = View.VISIBLE
-//            }
-//        }
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (activity != null) {
+
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[FavMovieViewModel::class.java]
+
+            val movieAdapter = FavMovieAdapter()
+            _binding.progressBar.visibility = View.VISIBLE
+            viewModel.getFavoriteMovie().observe(viewLifecycleOwner, { movie ->
+                _binding.progressBar.visibility = View.GONE
+                movieAdapter.setmovies(movie)
+                movieAdapter.notifyDataSetChanged()
+            })
+
+            with(_binding.movieRvList) {
+                layoutManager = LinearLayoutManager(context)
+                setHasFixedSize(true)
+                adapter = movieAdapter
+            }
+        }
+        else{
+            _binding.apply {
+                ivFavmovKosong.visibility = View.VISIBLE
+                tvFavmovKosong.visibility = View.VISIBLE
+            }
+        }
+    }
 }

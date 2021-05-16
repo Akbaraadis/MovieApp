@@ -2,6 +2,7 @@ package com.project.movie_jetpack.ui.detail
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
@@ -11,9 +12,12 @@ import com.project.movie_jetpack.R
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.data.viewmodel.ViewModelFactory
+import com.project.movie_jetpack.data.vo.Status
 import com.project.movie_jetpack.databinding.ActivityDetailMovieBinding
 
 class DetailMovieActivity : AppCompatActivity() {
+
+    lateinit var Movie : MovieEntity
 
     companion object {
         const val EXTRA_MOVIE = "extra_movie"
@@ -46,13 +50,33 @@ class DetailMovieActivity : AppCompatActivity() {
                 viewModel.setSelectedMovie(movieId)
 
                 viewModel.getMovie().observe(this, { movie ->
+
+                    Movie = movie
+
                     binding.progressBar.visibility = View.GONE
                     binding.detailContent.visibility = View.VISIBLE
                     viewModel.setSelectedMovie(movie.movieId)
+                    if(movie.favorite){
+                        binding.detailIvFavBorder.visibility = View.GONE
+                        binding.detailIvFav.visibility = View.VISIBLE
+                    }
+                    else{
+                        binding.detailIvFavBorder.visibility = View.VISIBLE
+                        binding.detailIvFav.visibility = View.GONE
+                    }
                 })
                 viewModel.getMovie().observe(this, { movie -> showMovie(movie) })
-
             }
+        }
+
+        binding.detailIvFavBorder.setOnClickListener {
+            viewModel.addMovieFavorite(Movie)
+            Toast.makeText(this, "Movie Berhasil Ditambahkan Ke Favorite", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.detailIvFav.setOnClickListener {
+            viewModel.removeMovieFavorite(Movie)
+            Toast.makeText(this, "Movie Berhasil Dihapus Dari Favorite", Toast.LENGTH_SHORT).show()
         }
     }
 
