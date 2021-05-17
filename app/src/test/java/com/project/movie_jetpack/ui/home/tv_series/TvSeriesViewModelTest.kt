@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
+import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.data.utils.MoviesData
+import com.project.movie_jetpack.data.vo.Resource
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNotNull
 import org.junit.Before
@@ -29,7 +31,7 @@ class TvSeriesViewModelTest {
     private lateinit var movieRepo: MovieRepo
 
     @Mock
-    private lateinit var observer: Observer<List<Movies>>
+    private lateinit var observer: Observer<Resource<List<SeriesEntity>>>
 
     @Before
     fun setUp() {
@@ -38,12 +40,12 @@ class TvSeriesViewModelTest {
 
     @Test
     fun getSeries() {
-        val dataMovie = MoviesData.generateSerries()
-        val series = MutableLiveData<List<Movies>>()
+        val dataMovie = Resource.success(MoviesData.generateSerries())
+        val series = MutableLiveData<Resource<List<SeriesEntity>>>()
         series.value = dataMovie
 
         `when`(movieRepo.getAllSeries()).thenReturn(series)
-        val courseEntities = viewModel.getSeries().value
+        val courseEntities = viewModel.getSeries().value?.data
         verify(movieRepo).getAllSeries()
         assertNotNull(courseEntities)
         assertEquals(10, courseEntities?.size)
