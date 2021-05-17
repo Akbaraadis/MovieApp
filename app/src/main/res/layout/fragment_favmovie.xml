@@ -29,7 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/favorite" />
 
     <TextView
         android:id="@+id/tv_favmov_kosong"
@@ -39,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_favmov_kosong"
-        android:text="Data Belum Ditambahkan"
+        android:text="@string/data_belum_ditambahkan"
         style="@style/textTitle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

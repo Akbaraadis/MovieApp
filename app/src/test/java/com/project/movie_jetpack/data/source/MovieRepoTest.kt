@@ -19,8 +19,7 @@ import junit.framework.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.mock
+import org.mockito.Mockito.*
 
 
 class MovieRepoTest {
@@ -28,9 +27,9 @@ class MovieRepoTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    private val remote = Mockito.mock(RemoteDataSource::class.java)
-    private val local = Mockito.mock(LocalDataSource::class.java)
-    private val appExecutors = Mockito.mock(AppExecutors::class.java)
+    private val remote = mock(RemoteDataSource::class.java)
+    private val local = mock(LocalDataSource::class.java)
+    private val appExecutors = mock(AppExecutors::class.java)
     private val movieRepo = FakeMovieRepo(remote, local, appExecutors)
 
     private val movieResponse = MoviesData.generateRemoteMovie()
@@ -80,5 +79,19 @@ class MovieRepoTest {
         verify(local).getFavoriteSeries()
         assertNotNull(seriesEntities)
         assertEquals(seriesResponse.size.toLong(), seriesEntities.data?.size?.toLong())
+    }
+
+    @Test
+    fun setFavoriteMovie() {
+        movieRepo.setMovieFavorite(MoviesData.getFavMovie(), true)
+        verify(local).setMovieFavorite(MoviesData.getFavMovie(), true)
+        verifyNoMoreInteractions(local)
+    }
+
+    @Test
+    fun setFavoriteSeries(){
+        movieRepo.setSeriesFavorite(MoviesData.getFavSeries(), true)
+        verify(local).setSeriesFavorite(MoviesData.getFavSeries(), true)
+        verifyNoMoreInteractions(local)
     }
 }

@@ -62,29 +62,6 @@ class FakeMovieRepo constructor(
     }
 
     override fun getMovie(movieId: String): LiveData<MovieEntity> {
-
-//        val movieResult = MutableLiveData<Movies>()
-
-//        localDataSource.getMovie(movieId)
-
-//        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMovieCallback {
-//            override fun onAllMovieReceived(movieResponses: List<MovieResponse>) {
-//                lateinit var movie: Movies
-//                for (response in movieResponses) {
-//                    if (response.id == movieId) {
-//                        movie = Movies(
-//                                response.id,
-//                                response.title,
-//                                response.release_date,
-//                                response.overview,
-//                                response.genre,
-//                                response.imagePath
-//                        )
-//                    }
-//                }
-//                movieResult.postValue(movie)
-//            }
-//        })
         return localDataSource.getMovie(movieId)
     }
 
@@ -100,7 +77,6 @@ class FakeMovieRepo constructor(
                     .build()
                 return LivePagedListBuilder(localDataSource.getAllSeries(), config).build()
             }
-//                    localDataSource.getAllSeries()
 
             override fun shouldFetch(data: PagedList<SeriesEntity>?): Boolean =
                 data == null || data.isEmpty()
@@ -128,27 +104,6 @@ class FakeMovieRepo constructor(
     }
 
     override fun getSeries(seriesId: String): LiveData<SeriesEntity> {
-
-//        val seriesResult = MutableLiveData<Movies>()
-//
-//        remoteDataSource.getAllSeries(object : RemoteDataSource.LoadSeriesCallback {
-//            override fun onAllSeriesReceived(seriesResponses: List<SeriesResponse>) {
-//                lateinit var series: Movies
-//                for (response in seriesResponses) {
-//                    if (response.id == seriesId) {
-//                        series = Movies(
-//                            response.id,
-//                            response.title,
-//                            response.release_date,
-//                            response.overview,
-//                            response.genre,
-//                            response.imagePath
-//                        )
-//                    }
-//                }
-//                seriesResult.postValue(series)
-//            }
-//        })
         return localDataSource.getSeries(seriesId)
     }
 
@@ -161,9 +116,9 @@ class FakeMovieRepo constructor(
         return LivePagedListBuilder(localDataSource.getFavoriteMovie(), config).build()
     }
 
-    override fun setMovieFavorite(movie: MovieEntity, state: Boolean) =
-            appExecutors.diskIO().execute { localDataSource.setMovieFavorite(movie, state)
-            }
+    override fun setMovieFavorite(movie: MovieEntity, state: Boolean) {
+        localDataSource.setMovieFavorite(movie, state)
+    }
 
     override fun getFavoriteSeries(): LiveData<PagedList<SeriesEntity>> {
         val config = PagedList.Config.Builder()
@@ -174,7 +129,7 @@ class FakeMovieRepo constructor(
         return LivePagedListBuilder(localDataSource.getFavoriteSeries(), config).build()
     }
 
-    override fun setSeriesFavorite(series: SeriesEntity, state: Boolean) =
-            appExecutors.diskIO().execute { localDataSource.setSeriesFavorite(series, state)
-            }
+    override fun setSeriesFavorite(series: SeriesEntity, state: Boolean) {
+        localDataSource.setSeriesFavorite(series, state)
+    }
 }

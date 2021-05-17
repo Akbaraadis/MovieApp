@@ -312,4 +312,28 @@ object MoviesData {
         return series
     }
 
+    fun getFavMovie(): MovieEntity {
+        return MovieEntity(
+                "m460465",
+                "Mortal Kombat",
+                "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+                "07/04/2021",
+                "Fantasi, Aksi, Petualangan, Cerita Fiksi, Cerita Seru",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/yvcNQv8fth51nWuaLwfpr50IRiO.jpg",
+                false
+        )
+    }
+
+    fun getFavSeries(): SeriesEntity {
+        return SeriesEntity(
+                "t100",
+                "I Am Not an Animal",
+                "I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.",
+                "2004",
+                "Animasi, Komedi",
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qG59J1Q7rpBc1dvku4azbzcqo8h.jpg",
+                false
+        )
+    }
+
 }

@@ -14,4 +14,5 @@
     <string name="favorite">Favorite</string>
     <string name="message_undo">Tekan Kembali Untuk Mengembalikan</string>
     <string name="message_ok">Kembali</string>
+    <string name="data_belum_ditambahkan">Data Belum Ditambahkan</string>
 </resources>

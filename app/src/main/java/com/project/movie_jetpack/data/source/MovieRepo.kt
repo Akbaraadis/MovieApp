@@ -40,7 +40,6 @@ class MovieRepo private constructor(
                     .build()
                 return LivePagedListBuilder(localDataSource.getAllMovie(), config).build()
             }
-//                    localDataSource.getAllMovie()
 
             override fun shouldFetch(data: PagedList<MovieEntity>?): Boolean =
                     data == null || data.isEmpty()
@@ -68,29 +67,6 @@ class MovieRepo private constructor(
     }
 
     override fun getMovie(movieId: String): LiveData<MovieEntity> {
-
-//        val movieResult = MutableLiveData<Movies>()
-
-//        localDataSource.getMovie(movieId)
-
-//        remoteDataSource.getAllMovie(object : RemoteDataSource.LoadMovieCallback {
-//            override fun onAllMovieReceived(movieResponses: List<MovieResponse>) {
-//                lateinit var movie: Movies
-//                for (response in movieResponses) {
-//                    if (response.id == movieId) {
-//                        movie = Movies(
-//                                response.id,
-//                                response.title,
-//                                response.release_date,
-//                                response.overview,
-//                                response.genre,
-//                                response.imagePath
-//                        )
-//                    }
-//                }
-//                movieResult.postValue(movie)
-//            }
-//        })
         return localDataSource.getMovie(movieId)
     }
 
@@ -106,7 +82,6 @@ class MovieRepo private constructor(
                     .build()
                 return LivePagedListBuilder(localDataSource.getAllSeries(), config).build()
             }
-//                    localDataSource.getAllSeries()
 
             override fun shouldFetch(data: PagedList<SeriesEntity>?): Boolean =
                 data == null || data.isEmpty()
@@ -133,67 +108,7 @@ class MovieRepo private constructor(
         }.asLiveData()
     }
 
-//    override fun getAllSeries(): LiveData<Resource<PagedList<SeriesEntity>>> {
-//
-//        return object : NetworkBoundResource<PagedList<SeriesEntity>, PagedList<SeriesResponse>>(appExecutors) {
-//
-//            public override fun loadFromDB(): LiveData<PagedList<SeriesEntity>> {
-//                val config = PagedList.Config.Builder()
-//                    .setEnablePlaceholders(false)
-//                    .setInitialLoadSizeHint(4)
-//                    .setPageSize(4)
-//                    .build()
-//                return LivePagedListBuilder(localDataSource.getAllSeries(), config).build()
-//            }
-////                    localDataSource.getAllSeries()
-//
-//            override fun shouldFetch(data: PagedList<SeriesEntity>?): Boolean =
-//                    data == null || data.isEmpty()
-//
-//            public override fun createCall(): LiveData<ApiResponse<List<SeriesResponse>>> =
-//                    remoteDataSource.getAllSeries()
-//
-//            public override fun saveCallResult(data: PagedList<SeriesResponse>) {
-//                val seriesList = ArrayList<SeriesEntity>()
-//                for (response in data) {
-//                    val series = SeriesEntity(
-//                            response.id,
-//                            response.title,
-//                            response.release_date,
-//                            response.overview,
-//                            response.genre,
-//                            response.imagePath,
-//                            false
-//                    )
-//                    seriesList.add(series)
-//                }
-//                localDataSource.insertSeries(seriesList)
-//            }
-//        }.asLiveData()
-//    }
-
     override fun getSeries(seriesId: String): LiveData<SeriesEntity> {
-
-//        val seriesResult = MutableLiveData<Movies>()
-//
-//        remoteDataSource.getAllSeries(object : RemoteDataSource.LoadSeriesCallback {
-//            override fun onAllSeriesReceived(seriesResponses: List<SeriesResponse>) {
-//                lateinit var series: Movies
-//                for (response in seriesResponses) {
-//                    if (response.id == seriesId) {
-//                        series = Movies(
-//                            response.id,
-//                            response.title,
-//                            response.release_date,
-//                            response.overview,
-//                            response.genre,
-//                            response.imagePath
-//                        )
-//                    }
-//                }
-//                seriesResult.postValue(series)
-//            }
-//        })
         return localDataSource.getSeries(seriesId)
     }
 
@@ -205,7 +120,6 @@ class MovieRepo private constructor(
             .build()
         return LivePagedListBuilder(localDataSource.getFavoriteMovie(), config).build()
     }
-//        localDataSource.getFavoriteMovie()
 
     override fun setMovieFavorite(movie: MovieEntity, state: Boolean) =
         appExecutors.diskIO().execute { localDataSource.setMovieFavorite(movie, state)
@@ -219,7 +133,6 @@ class MovieRepo private constructor(
             .build()
         return LivePagedListBuilder(localDataSource.getFavoriteSeries(), config).build()
     }
-//        localDataSource.getFavoriteSeries()
 
     override fun setSeriesFavorite(series: SeriesEntity, state: Boolean) =
         appExecutors.diskIO().execute { localDataSource.setSeriesFavorite(series, state)
