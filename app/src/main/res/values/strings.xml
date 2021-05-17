@@ -12,4 +12,6 @@
     <string name="image">image</string>
     <string name="release">release</string>
     <string name="favorite">Favorite</string>
+    <string name="message_undo">Tekan Kembali Untuk Mengembalikan</string>
+    <string name="message_ok">Kembali</string>
 </resources>

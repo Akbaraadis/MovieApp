@@ -1,4 +1,4 @@
-package com.project.movie_jetpack.ui.home.movie
+package com.project.movie_jetpack.ui.favorite.favmovie
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
@@ -6,9 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.paging.PagedList
 import com.project.movie_jetpack.data.source.MovieRepo
 import com.project.movie_jetpack.data.source.local.entity.MovieEntity
-import com.project.movie_jetpack.data.vo.Resource
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertNotNull
+import junit.framework.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -19,9 +17,9 @@ import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
-class MovieViewModelTest {
+class FavMovieViewModelTest {
 
-    private lateinit var viewModel: MovieViewModel
+    private lateinit var viewModel: FavMovieViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -30,30 +28,30 @@ class MovieViewModelTest {
     private lateinit var movieRepo: MovieRepo
 
     @Mock
-    private lateinit var observer: Observer<Resource<PagedList<MovieEntity>>>
+    private lateinit var observer: Observer<PagedList<MovieEntity>>
 
     @Mock
     private lateinit var pagedList: PagedList<MovieEntity>
 
     @Before
     fun setUp() {
-        viewModel = MovieViewModel(movieRepo)
+        viewModel = FavMovieViewModel(movieRepo)
     }
 
     @Test
     fun getMovie() {
-        val dataMovie = Resource.success(pagedList)
-        `when`(dataMovie.data?.size).thenReturn(10)
-        val movies = MutableLiveData<Resource<PagedList<MovieEntity>>>()
+        val dataMovie = pagedList
+        `when`(dataMovie.size).thenReturn(1)
+        val movies = MutableLiveData<PagedList<MovieEntity>>()
         movies.value = dataMovie
 
-        `when`(movieRepo.getAllMovie()).thenReturn(movies)
-        val courseEntities = viewModel.getMovie().value?.data
-        verify(movieRepo).getAllMovie()
-        assertNotNull(courseEntities)
-        assertEquals(10, courseEntities?.size)
+        `when`(movieRepo.getFavoriteMovie()).thenReturn(movies)
+        val courseEntities = viewModel.getFavoriteMovie().value
+        verify(movieRepo).getFavoriteMovie()
+        Assert.assertNotNull(courseEntities)
+        Assert.assertEquals(1, courseEntities?.size)
 
-        viewModel.getMovie().observeForever(observer)
+        viewModel.getFavoriteMovie().observeForever(observer)
         verify(observer).onChanged(dataMovie)
     }
 

@@ -75,16 +75,6 @@ class DetailViewModelTest{
         verify(Observer).onChanged(movies)
     }
 
-//    @Test
-//    fun getCourseWithModule() {
-//        val dummyCourseWithModule = Resource.success(MoviesData.generateMovies())
-//        val course = MutableLiveData<Resource<MovieEntity>>()
-//        course.value = dummyCourseWithModule
-//        `when`(movieRepo.getMovie(movieId)).thenReturn(course)
-//        viewModel.getMovie().observeForever(Observer)
-//        verify(Observer).onChanged(dummyCourseWithModule)
-//    }
-
     @Test
     fun getSeries() {
         val course = MutableLiveData<SeriesEntity>()

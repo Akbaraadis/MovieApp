@@ -3,8 +3,10 @@ package com.project.movie_jetpack.ui.home.tv_series
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
+import androidx.paging.PagedList
 import com.project.movie_jetpack.data.Movies
 import com.project.movie_jetpack.data.source.MovieRepo
+import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.data.utils.MoviesData
 import com.project.movie_jetpack.data.vo.Resource
@@ -31,7 +33,10 @@ class TvSeriesViewModelTest {
     private lateinit var movieRepo: MovieRepo
 
     @Mock
-    private lateinit var observer: Observer<Resource<List<SeriesEntity>>>
+    private lateinit var observer: Observer<Resource<PagedList<SeriesEntity>>>
+
+    @Mock
+    private lateinit var pagedList: PagedList<SeriesEntity>
 
     @Before
     fun setUp() {
@@ -40,8 +45,9 @@ class TvSeriesViewModelTest {
 
     @Test
     fun getSeries() {
-        val dataMovie = Resource.success(MoviesData.generateSerries())
-        val series = MutableLiveData<Resource<List<SeriesEntity>>>()
+        val dataMovie = Resource.success(pagedList)
+        `when`(dataMovie.data?.size).thenReturn(10)
+        val series = MutableLiveData<Resource<PagedList<SeriesEntity>>>()
         series.value = dataMovie
 
         `when`(movieRepo.getAllSeries()).thenReturn(series)

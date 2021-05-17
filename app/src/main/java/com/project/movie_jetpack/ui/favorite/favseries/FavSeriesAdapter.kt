@@ -3,22 +3,29 @@ package com.project.movie_jetpack.ui.favorite.favseries
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.project.movie_jetpack.R
+import com.project.movie_jetpack.data.source.local.entity.MovieEntity
 import com.project.movie_jetpack.data.source.local.entity.SeriesEntity
 import com.project.movie_jetpack.databinding.ItemRowListBinding
 import com.project.movie_jetpack.ui.detail.DetailSeriesActivity
+import com.project.movie_jetpack.ui.home.tv_series.TvSeriesAdapter
 
-class FavSeriesAdapter: RecyclerView.Adapter<FavSeriesAdapter.SeriesViewHolder>() {
+class FavSeriesAdapter: PagedListAdapter<SeriesEntity, FavSeriesAdapter.SeriesViewHolder>(DIFF_CALLBACK) {
 
-    private var listmovies = ArrayList<SeriesEntity>()
-
-    fun setseries(series: List<SeriesEntity>) {
-        if (series == null) return
-        this.listmovies.clear()
-        this.listmovies.addAll(series)
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<SeriesEntity>() {
+            override fun areItemsTheSame(oldItem: SeriesEntity, newItem: SeriesEntity): Boolean {
+                return oldItem.movieId == newItem.movieId
+            }
+            override fun areContentsTheSame(oldItem: SeriesEntity, newItem: SeriesEntity): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeriesViewHolder {
@@ -28,11 +35,13 @@ class FavSeriesAdapter: RecyclerView.Adapter<FavSeriesAdapter.SeriesViewHolder>(
     }
 
     override fun onBindViewHolder(holder: SeriesViewHolder, position: Int) {
-        val movies = listmovies[position]
-        holder.bind(movies)
+        val movies = getItem(position)
+        if (movies != null){
+            holder.bind(movies)
+        }
     }
 
-    override fun getItemCount(): Int = listmovies.size
+    fun getSwipedData(swipedPosition: Int): SeriesEntity? = getItem(swipedPosition)
 
     class SeriesViewHolder(private val binding: ItemRowListBinding) :
         RecyclerView.ViewHolder(binding.root) {
