@@ -3,6 +3,7 @@ package com.project.movie_jetpack.ui.home
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -78,6 +79,44 @@ class HomeActivityTest {
         onView(withId(R.id.detail_iv_poster)).check(matches(isDisplayed()))
      }
 
+    @Test
+    fun setandremoveMovieFavorite(){
+        onView(withId(R.id.movie_rv_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.detail_iv_fav_border)).perform(click())
+        pressBack()
+        onView(withId(R.id.look_favorite)).perform(click())
+        onView(withId(R.id.movie_rv_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.detail_tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_title)).check(matches(withText("Mortal Kombat")))
+        onView(withId(R.id.detail_tv_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_genre)).check(matches(withText("Fantasi, Aksi, Petualangan, Cerita Fiksi, Cerita Seru")))
+        onView(withId(R.id.detail_tv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_release)).check(matches(withText("07/04/2021")))
+        onView(withId(R.id.detail_tv_sinopsis)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_sinopsis)).check(matches(withText("Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.")))
+        onView(withId(R.id.detail_iv_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_iv_fav)).perform(click())
+    }
 
+    @Test
+    fun setandremoveSeriesFavorite(){
+        onView(withText("Tv Series")).perform(click())
+        onView(withId(R.id.series_rv_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.detail_iv_fav_border)).perform(click())
+        pressBack()
+        onView(withId(R.id.look_favorite)).perform(click())
+        onView(withText("Tv Series")).perform(click())
+        onView(withId(R.id.series_rv_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.detail_tv_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_title)).check(matches(withText("I Am Not an Animal")))
+        onView(withId(R.id.detail_tv_genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_genre)).check(matches(withText("Animasi, Komedi")))
+        onView(withId(R.id.detail_tv_release)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_release)).check(matches(withText("2004")))
+        onView(withId(R.id.detail_tv_sinopsis)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_sinopsis)).check(matches(withText("I Am Not An Animal is an animated comedy series about the only six talking animals in the world, whose cosseted existence in a vivisection unit is turned upside down when they are liberated by animal rights activists.")))
+        onView(withId(R.id.detail_iv_poster)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_iv_fav)).perform(click())
+    }
 
 }

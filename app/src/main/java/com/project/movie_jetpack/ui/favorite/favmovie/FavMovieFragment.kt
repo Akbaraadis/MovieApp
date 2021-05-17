@@ -27,7 +27,7 @@ class FavMovieFragment: Fragment(R.layout.fragment_favmovie) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        itemTouchHelper.attachToRecyclerView(_binding?.movieRvList)
+        itemTouchHelper.attachToRecyclerView(_binding.movieRvList)
         if (activity != null) {
 
             val factory = ViewModelFactory.getInstance(requireActivity())

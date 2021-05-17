@@ -43,11 +43,6 @@ class MovieRepoTest {
         movieRepo.getAllMovie()
 
         val movieEntities = Resource.success(PagedListUtil.mockPagedList(MoviesData.generateMovies()))
-//        val movie = MutableLiveData<List<MovieEntity>>()
-//        movie.value = MoviesData.generateMovies()
-//        `when`(local.getAllMovie()).thenReturn(movie)
-//
-//        val movieEntities = LiveDataTestUtil.getValue(movieRepo.getAllMovie())
         verify(local).getAllMovie()
         assertNotNull(movieEntities.data)
         assertEquals(movieResponse.size.toLong(), movieEntities.data?.size?.toLong())
@@ -60,12 +55,6 @@ class MovieRepoTest {
         movieRepo.getAllSeries()
 
         val seriesEntities = Resource.success(PagedListUtil.mockPagedList(MoviesData.generateSerries()))
-
-    //        val series = MutableLiveData<List<SeriesEntity>>()
-//        series.value = MoviesData.generateSerries()
-//        `when`(local.getAllSeries()).thenReturn(series)
-//
-//        val seriesEntities = LiveDataTestUtil.getValue(movieRepo.getAllSeries())
         verify(local).getAllSeries()
         assertNotNull(seriesEntities.data)
         assertEquals(seriesResponse.size.toLong(), seriesEntities.data?.size?.toLong())

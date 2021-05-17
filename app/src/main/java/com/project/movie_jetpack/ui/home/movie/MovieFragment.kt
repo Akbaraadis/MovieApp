@@ -34,22 +34,22 @@ class MovieFragment: Fragment(R.layout.fragment_movie) {
             viewModel.getMovie().observe(viewLifecycleOwner, { movie ->
                 if (movie != null) {
                     when (movie.status) {
-                        Status.LOADING -> _binding?.progressBar?.visibility = View.VISIBLE
+                        Status.LOADING -> _binding.progressBar.visibility = View.VISIBLE
                         Status.SUCCESS -> {
-                            _binding?.progressBar?.visibility = View.GONE
+                            _binding.progressBar.visibility = View.GONE
                             movieAdapter.submitList(movie.data)
                         }
                         Status.ERROR -> {
-                            _binding?.progressBar?.visibility = View.GONE
+                            _binding.progressBar.visibility = View.GONE
                             Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }
             })
-            with(_binding?.movieRvList) {
-                this?.layoutManager = LinearLayoutManager(context)
-                this?.setHasFixedSize(true)
-                this?.adapter = movieAdapter
+            with(_binding.movieRvList) {
+                this.layoutManager = LinearLayoutManager(context)
+                this.setHasFixedSize(true)
+                this.adapter = movieAdapter
             }
 
 //            _binding.progressBar.visibility = View.VISIBLE

@@ -27,7 +27,7 @@ class FavSeriesFragment: Fragment(R.layout.fragment_favseries) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        itemTouchHelper.attachToRecyclerView(_binding?.seriesRvList)
+        itemTouchHelper.attachToRecyclerView(_binding.seriesRvList)
         if (activity != null) {
 
             val factory = ViewModelFactory.getInstance(requireActivity())

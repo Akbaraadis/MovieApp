@@ -95,4 +95,28 @@ class DetailViewModelTest{
         verify(Observer1).onChanged(series)
     }
 
+    @Test
+    fun setFavoriteMovie(){
+        viewModel = DetailViewModel(movieRepo)
+        viewModel.addMovieFavorite(movies)
+    }
+
+    @Test
+    fun setFavoriteSeries(){
+        viewModel1 = DetailViewModel(movieRepo)
+        viewModel1.addSeriesFavorite(series)
+    }
+
+    @Test
+    fun removeFavoriteMovie(){
+        viewModel = DetailViewModel(movieRepo)
+        viewModel.removeMovieFavorite(movies)
+    }
+
+    @Test
+    fun removeFavoriteSeries(){
+        viewModel1 = DetailViewModel(movieRepo)
+        viewModel1.removeSeriesFavorite(series)
+    }
+
 }
